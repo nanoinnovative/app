@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Secure Private Chat</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app" class="app">
+    <header class="header">
+      <div class="brand">
+        <img src="logo.svg" alt="logo" class="logo" />
+        <h1>ChatSpace</h1>
+      </div>
+      <div class="account" id="auth-area">
+        <!-- Filled by JS -->
+        <button id="signin-btn" class="btn primary">Sign in with Google</button>
+      </div>
+    </header>
+
+    <main class="main-grid">
+      <aside class="sidebar">
+        <section class="profile" id="profile">
+          <!-- user profile shown here -->
+        </section>
+
+        <section class="friends-card">
+          <h3>Friends</h3>
+          <div class="small">Add friend by code</div>
+          <div class="row">
+            <input id="friend-code-input" placeholder="Friend code (e.g. AB12CD)" />
+            <button id="add-friend-btn" class="btn">Add</button>
+          </div>
+          <div id="friends-list" class="list small"></div>
+        </section>
+
+        <section class="create-room-card">
+          <h3>Create Room</h3>
+          <input id="room-name" placeholder="Room name (e.g. Project Alpha)" />
+          <button id="create-room-btn" class="btn primary">Create Private Room</button>
+        </section>
+
+        <section class="rooms-card">
+          <h3>Your Rooms</h3>
+          <div id="rooms-list" class="list"></div>
+        </section>
+      </aside>
+
+      <section class="chat-area" id="chat-area">
+        <div id="empty-state" class="empty-state">
+          <p>Select or create a room to start chatting.</p>
+        </div>
+
+        <div id="chat-window" class="chat-window hidden">
+          <div class="room-header">
+            <div>
+              <h2 id="room-title"></h2>
+              <div class="small" id="room-id"></div>
+            </div>
+
+            <div class="invite">
+              <div class="small">Invite by friend code</div>
+              <div class="row">
+                <select id="friend-invite-select"></select>
+                <button id="invite-btn" class="btn">Invite</button>
+              </div>
+            </div>
+          </div>
+
+          <div id="messages" class="messages"></div>
+
+          <div class="composer">
+            <input id="message-input" placeholder="Type a message..." />
+            <button id="send-btn" class="btn primary">Send</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer small">
+      Built with Firebase — replace config in <code>app.js</code>
+    </footer>
+  </div>
+
+  <!-- Firebase modular SDK via CDN (recommended for static sites) -->
+  <script type="module" src="app.js"></script>
+</body>
+</html>
